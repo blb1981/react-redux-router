@@ -1,3 +1,3 @@
-# React/Redux/Router Basics
+# React/Redux/Router Notes
 
-Simple app to learn the basics of a React SPA using react-router and redux.
+A simple Notes app to learn the basics of a React SPA using react-router and redux.
