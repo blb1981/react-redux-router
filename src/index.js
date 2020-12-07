@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+// import App from './App'
+import App from './playground/redux-101'
 import reportWebVitals from './reportWebVitals'
 
 import './App.css'
