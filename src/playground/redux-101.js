@@ -44,11 +44,17 @@ const resetCount = () => ({
 // // REDUCERS
 // =============================================================================
 
+// 1. Reducers are pure functions, doesn't use anything from outside function scope
+// 2. Never changes state or action. Read off of those things already and return a new object.
+
 // Create store, pass in function w default state values
 // Action gets passed in as 2nd argument
 // Gets called upon initial store creation,
 // once again when an action is dispatched
-const store = createStore((state = { count: 0 }, action) => {
+
+
+
+const countReducer = (state = { count: 0 }, action) => {
   // if (action.type === 'INCREMENT') {
   //   return {
   //     count: state.count + 1,
@@ -56,7 +62,6 @@ const store = createStore((state = { count: 0 }, action) => {
   // } else {
   //   return state
   // }
-
 
   // Switch statements are more scalable than if statements
   switch (action.type) {
@@ -85,7 +90,10 @@ const store = createStore((state = { count: 0 }, action) => {
     default:
       return state
   }
-})
+}
+
+
+const store = createStore(countReducer)
 
 // =============================================================================
 // // SUBSCRIPTIONS
