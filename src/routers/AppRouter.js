@@ -8,6 +8,32 @@ import EditNotePage from '../components/EditNotePage'
 import HelpPage from '../components/HelpPage'
 import NotFoundPage from '../components/NotFoundPage'
 
+import configureStore from '../store/configureStore'
+import { addNote } from '../actions/notes'
+import { setTextFilter } from '../actions/filters'
+import getVisibleNotes from '../selectors/notes'
+
+const store = configureStore()
+
+store.dispatch(
+  addNote({
+    noteTitle: 'My first note',
+    noteBody: 'Body of my first note.',
+  })
+)
+store.dispatch(
+  addNote({
+    noteTitle: 'My 2nd note',
+    noteBody: 'Body of my 2nd note.',
+  })
+)
+store.dispatch(setTextFilter('2nd'))
+
+const state = store.getState()
+const visibleNotes = getVisibleNotes(state.notes, state.filters)
+console.log({ visibleNotes })
+console.log({ state })
+
 const AppRouter = () => {
   return (
     <BrowserRouter>

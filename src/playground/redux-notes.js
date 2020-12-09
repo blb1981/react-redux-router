@@ -231,21 +231,21 @@ const noteTwo = store.dispatch(
   })
 )
 
-// store.dispatch(removeNote({ id: noteTwo.note.id }))
+store.dispatch(removeNote({ id: noteTwo.note.id }))
 
-// store.dispatch(editNote(noteOne.note.id, { noteBody: 'Shorter note now.' }))
+store.dispatch(editNote(noteOne.note.id, { noteBody: 'Shorter note now.' }))
 
-// store.dispatch(setTextFilter('first'))
-// store.dispatch(setTextFilter())
-// store.dispatch(setTextFilter('2'))
+store.dispatch(setTextFilter('first'))
+store.dispatch(setTextFilter())
+store.dispatch(setTextFilter('2'))
 
 store.dispatch(sortByName())
 store.dispatch(sortByDate())
 
-// store.dispatch(setStartDate(1))
-// store.dispatch(setStartDate())
-// store.dispatch(setEndDate(-2000))
-// store.dispatch(setEndDate())
+store.dispatch(setStartDate(1))
+store.dispatch(setStartDate())
+store.dispatch(setEndDate(-2000))
+store.dispatch(setEndDate())
 
 // =============================================================================
 // React code, only exists to keep index.js happy
