@@ -1,7 +1,13 @@
 import React from 'react'
+import NotesList from './NotesList'
 
 const DashboardPage = () => {
-  return <h1>Dashboard</h1>
+  return (
+    <div>
+      <h1>Dashboard Page</h1>
+      <NotesList />
+    </div>
+  )
 }
 
 export default DashboardPage
