@@ -1,4 +1,4 @@
-export default (notes, { text, sortBy, startDate, endDate }) => {
+const notesSelector = (notes, { text, sortBy, startDate, endDate }) => {
   return notes
     .filter((note) => {
       const startDateMatch =
@@ -16,6 +16,9 @@ export default (notes, { text, sortBy, startDate, endDate }) => {
         return a.createdAt > b.createdAt ? 1 : -1
       } else if (sortBy === 'name') {
         return a.noteTitle[0] > b.noteTitle[0] ? 1 : -1
+      } else {
+        return []
       }
     })
 }
+export default notesSelector
