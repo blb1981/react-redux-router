@@ -15,9 +15,9 @@ const notesSelector = (notes, { text, sortBy, startDate, endDate }) => {
       if (sortBy === 'date') {
         return a.createdAt > b.createdAt ? 1 : -1
       } else if (sortBy === 'name') {
-        return a.noteTitle[0] > b.noteTitle[0] ? 1 : -1
+        return a.noteTitle > b.noteTitle ? 1 : -1
       } else {
-        return []
+        return 0
       }
     })
 }

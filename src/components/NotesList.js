@@ -1,20 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import NoteListItem from './NoteListItem'
+import selectNotes from '../selectors/notes'
 
 const NotesList = (props) => {
   return (
-    <div>
-      <h2>Notes List</h2>
-      {props.notes.length}<br />
-			{props.filters.text}
-    </div>
+   <div>
+     {
+       props.notes.map((note) => {
+         return (
+         <NoteListItem {...note} key={note.id} />
+         // Spread operator can be used to pass props
+
+         )
+       })
+     }
+   </div>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-		notes: state.notes,
-		filters: state.filters
+		notes: selectNotes(state.notes, state.filters)
   }
 }
 
