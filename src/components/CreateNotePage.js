@@ -9,7 +9,7 @@ const CreateNotePage = (props) => (
     <NoteForm
       onSubmit={(note) => {
         props.dispatch(addNote(note))
-        console.log(note, 'from CreateNotePage.js')
+        props.history.push('/')
       }}
     />
   </div>

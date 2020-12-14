@@ -1,12 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import NoteForm from "./NoteForm";
 
-const EditNotePage = (props) => {
-  console.log(props)
-  return (
-    <div>
-      Edit note {props.match.params.id}
-    </div>
-  )
+const EditNotePage = () => (
+  <div>
+    <NoteForm  />
+  </div>
+)
+
+const mapStateToProps = (state, props) => {
+  return {
+    note: state.notes.find((note) => {
+      return note.id === props.match.params.id
+    }),
+  }
 }
 
-export default EditNotePage
+export default connect(mapStateToProps)(EditNotePage)
