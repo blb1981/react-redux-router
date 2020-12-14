@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css'
@@ -26,7 +25,9 @@ class NoteForm extends React.Component {
     this.setState(() => ({ noteBody }))
   }
   onDateChange = (createdAt) => {
-    this.setState(() => ({ createdAt }))
+    if (createdAt) {
+      this.setState(() => ({ createdAt }))
+    }
   }
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ dateFocused: focused }))
@@ -44,10 +45,9 @@ class NoteForm extends React.Component {
         noteBody: this.state.noteBody,
         createdAt: this.state.createdAt.format(),
       }
-      console.log(note)
+      this.props.onSubmit(note)
       // TODO: dispatch call to add note
     }
-    console.log(this.state.errors)
   }
   render() {
     return (
@@ -86,4 +86,4 @@ class NoteForm extends React.Component {
   }
 }
 
-export default connect()(NoteForm)
+export default NoteForm
