@@ -1,7 +1,7 @@
 import React from 'react'
-import { connect } from "react-redux";
+import { connect } from 'react-redux'
 import NoteForm from '../components/NoteForm'
-import { addNote } from "../actions/notes";
+import { addNote } from '../actions/notes'
 
 const CreateNotePage = (props) => (
   <div>

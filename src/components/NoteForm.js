@@ -2,19 +2,17 @@ import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css'
-// import {MuiPickersUtilsProvider, KeyboardDatePicker } from "@material-ui/pickers";
-
-const now = moment()
-console.log(now.format('lll'))
-// console.log(now.format('MMM Do, YYYY - H:m a Z'))
 
 class NoteForm extends React.Component {
-  state = {
-    noteTitle: '',
-    noteBody: '',
-    createdAt: moment(),
-    dateFocused: false,
-    errors: '',
+  constructor(props) {
+    super(props)
+    this.state = {
+      noteTitle: props.note.noteTitle ? props.note.noteTitle : '',
+      noteBody: props.note.noteBody ? props.note.noteBody : '',
+      createdAt: props.note.createdAt ? moment(props.note.createdAt).valueOf() : moment().valueOf(),
+      dateFocused: false,
+      errors: '',
+    }
   }
   handleTitleChange = (e) => {
     const noteTitle = e.target.value
@@ -46,7 +44,6 @@ class NoteForm extends React.Component {
         createdAt: this.state.createdAt.format(),
       }
       this.props.onSubmit(note)
-      // TODO: dispatch call to add note
     }
   }
   render() {
@@ -79,7 +76,7 @@ class NoteForm extends React.Component {
             isOutsideRange={() => false}
           />
           <br />
-          <button type="submit">Add</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     )

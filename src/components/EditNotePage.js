@@ -1,10 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import NoteForm from "./NoteForm";
+import NoteForm from './NoteForm'
+import { editNote, removeNote } from '../actions/notes'
 
-const EditNotePage = () => (
+const EditNotePage = (props) => (
   <div>
-    <NoteForm  />
+    <NoteForm
+      note={props.note}
+      onSubmit={(note) => {
+        props.dispatch(editNote(props.note.id, note))
+        props.history.push('/')
+      }}
+    />
+    <button
+      onClick={() => {
+        props.dispatch(removeNote({ id: props.note.id }))
+        props.history.push('/')
+      }}
+    >
+      Delete Note
+    </button>
   </div>
 )
 
